@@ -7,5 +7,8 @@ class Participante(models.Model):
     data_nascimento = models.DateField(blank=True, null=True)
     ativo = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ["nome"]
+
     def __str__(self):
         return self.nome
