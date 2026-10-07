@@ -19,5 +19,8 @@ class Atividade(models.Model):
         default="ativa"
     )
 
+    class Meta:
+        ordering = ["data", "horario"]
+
     def __str__(self):
         return self.nome
