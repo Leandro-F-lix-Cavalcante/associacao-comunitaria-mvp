@@ -14,12 +14,15 @@ class Inscricao(models.Model):
         on_delete=models.PROTECT,
         related_name="inscricoes"
     )
+
     atividade = models.ForeignKey(
         Atividade,
         on_delete=models.PROTECT,
         related_name="inscricoes"
     )
+
     data_inscricao = models.DateTimeField(auto_now_add=True)
+
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
