@@ -1,23 +1,52 @@
-"""
-URL configuration for config project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+
+def inicio(request):
+    return HttpResponse("""
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Associação Comunitária Esperança</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background: #f1f5f9;
+                    color: #1e293b;
+                    text-align: center;
+                    padding: 60px 20px;
+                }
+                main {
+                    max-width: 650px;
+                    margin: auto;
+                    background: white;
+                    padding: 35px;
+                    border-radius: 14px;
+                }
+                a {
+                    display: inline-block;
+                    background: #166534;
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    margin-top: 15px;
+                }
+            </style>
+        </head>
+        <body>
+            <main>
+                <h1>Associação Comunitária Esperança</h1>
+                <p>Bem-vindo ao sistema da Associação Comunitária Esperança.</p>
+                <p>Um espaço para apoiar a organização das atividades comunitárias.</p>
+                <a href="/admin/">Acessar administração</a>
+            </main>
+        </body>
+        </html>
+    """)
 
 urlpatterns = [
+    path("", inicio, name="inicio"),
     path("admin/", admin.site.urls),
 ]
